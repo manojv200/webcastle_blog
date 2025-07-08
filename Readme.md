@@ -16,6 +16,7 @@ Get all Posts : http://127.0.0.1:8000/api/posts/ using GET
 Get each Post : http://127.0.0.1:8000/api/posts/id_of_post/ using GET
 Delete Post : http://127.0.0.1:8000/api/posts/id_of_post/  using DELETE
 Add a comment : http://127.0.0.1:8000/api/posts/id_of_post/comments/ using POST body :content
+Get all comments in a post : http://127.0.0.1:8000/api/posts/id_of_post/comments/ using GET
 
 add Authorization and Content-Type in Headers for all Api end points
 
