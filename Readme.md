@@ -1,12 +1,13 @@
 Blog for creating Posts by user and add comments to each post
 Authentication using django simple-jwt
 
-Create python env using python -m venv 
+Create python env using python -m venv
+Clone Git Reopsitory https://github.com/manojv200/webcastle_blog.git 
 Activate env and install requirements.txt using pip install -r requirments.txt
 
 After that,execute command python3 manage.py migrate
 
-Then run sthe server using python3 manage.py runserver
+Then run the server using python3 manage.py runserver
 
 Api endpoints:
 
