@@ -1,13 +1,14 @@
 from django.shortcuts import render
 from rest_framework import generics, permissions
 from rest_framework.exceptions import PermissionDenied
-from rest_framework.views import APIView
-
-from blog.models import Posts, Comments
-from blog.serializers import PostsSerializer, PostDetailSerializer, CommentsSerializer
+from blog.models import Posts, Comments, TblUser
+from blog.serializers import PostsSerializer, PostDetailSerializer, CommentsSerializer, RegistrationSerializer
 
 
 # Create your views here.
+class RegisterView(generics.CreateAPIView):
+    serializer_class = RegistrationSerializer
+    permission_classes = (permissions.AllowAny,)
 
 class PostListCreate(generics.ListCreateAPIView):
     queryset = Posts.objects.all().order_by('-created_at')
@@ -23,7 +24,6 @@ class DetailPost(generics.RetrieveDestroyAPIView):
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
     def get_serializer_class(self):
-        print(self.request.method)
         if self.request.method == 'GET':
             return PostDetailSerializer
         return PostsSerializer

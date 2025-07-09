@@ -8,7 +8,9 @@ from blog.models import Comments, TblUser
 class CustomUserCreationForm(UserCreationForm):
     class Meta:
         model = TblUser
-        fields = ('username', 'email', 'mobile')
+        fields = ('username', 'email', 'mobile', 'password')
+
+
 
 class CustomUserChangeForm(UserChangeForm):
     class Meta:
@@ -24,8 +26,11 @@ class CustomUserAdmin(UserAdmin):
     fieldsets = UserAdmin.fieldsets + (
         (None, {'fields': ('mobile',)}),
     )
-    add_fieldsets = UserAdmin.add_fieldsets + (
-        (None, {'fields': ('mobile',)}),
+    add_fieldsets = (
+        (None, {
+            'classes': ('wide',),
+            'fields': ('username', 'email', 'mobile', 'password1', 'password2', 'is_staff', 'is_superuser'),
+        }),
     )
 
 admin.site.register(TblUser, CustomUserAdmin)
